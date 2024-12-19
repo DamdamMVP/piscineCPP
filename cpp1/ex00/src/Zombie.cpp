@@ -6,7 +6,7 @@
 /*   By: dalebran <dalebran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 05:36:07 by dalebran          #+#    #+#             */
-/*   Updated: 2024/12/19 06:31:34 by dalebran         ###   ########.fr       */
+/*   Updated: 2024/12/19 06:39:24 by dalebran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 Zombie::Zombie()
 {
-	std::cout << "lol" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "ptdr" << std::endl;
+	std::cout << name << " is delete." << std::endl;
 }
 
 void Zombie::setName(std::string name)
