@@ -3,20 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dalebran <dalebran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damdam <damdam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 05:35:54 by dalebran          #+#    #+#             */
-/*   Updated: 2024/12/19 06:35:49 by dalebran         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:52:10 by damdam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "zombie.h"
 
-int	main()
+int main()
 {
-	Zombie *roger = newZombie("roger");
-	roger->announce();
-	randomChump("gilbert");
-	delete roger;
+	int i;
+
+	Zombie *zombies = zombieHorde(5, "albert");
+	for (i = 0; i < 5; i++)
+	{
+		zombies[i].announce();
+	}
+	delete[] zombies;
 	return 0;
 }
