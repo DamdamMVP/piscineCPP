@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damdam <damdam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dalebran <dalebran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:01:43 by damdam            #+#    #+#             */
-/*   Updated: 2024/12/19 22:17:38 by damdam           ###   ########.fr       */
+/*   Updated: 2024/12/20 03:17:06 by dalebran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(const std::string &name, Weapon &weapon) : name(name), weapon(weapon) {}
+HumanA::HumanA(const std::string &name, Weapon &weapon) : name(name),
+	weapon(weapon)
+{
+	std::cout << name << " as been create !" << std::endl;
+}
+
+HumanA::~HumanA()
+{
+	std::cout << name << " as been delete !" << std::endl;
+}
 
 void HumanA::attack() const
 {

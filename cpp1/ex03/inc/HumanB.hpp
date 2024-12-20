@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damdam <damdam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dalebran <dalebran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:01:34 by damdam            #+#    #+#             */
-/*   Updated: 2024/12/19 22:14:27 by damdam           ###   ########.fr       */
+/*   Updated: 2024/12/20 03:15:25 by dalebran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_B_HPP
-#define HUMAN_B_HPP
+# define HUMAN_B_HPP
 
-#include "Weapon.hpp"
-#include <iostream>
-#include <string>
+# include "Weapon.hpp"
+# include <iostream>
+# include <string>
 
 class HumanB
 {
-private:
-    std::string name;
-    Weapon *weapon; // Pointeur vers une arme (peut être nul)
+  private:
+	std::string name;
+	Weapon *weapon;
 
-public:
-    HumanB(const std::string &name);
-    void setWeapon(Weapon &weapon);
-    void attack() const;
+  public:
+	HumanB(const std::string &name);
+	~HumanB();
+	void setWeapon(Weapon &weapon);
+	void attack() const;
 };
 
 #endif
