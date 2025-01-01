@@ -26,11 +26,11 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-  if (this->_energy == 0) {
+  if (this->_energy <= 0) {
     std::cout << "I have no more energy to attack !" << std::endl;
     return;
   }
-  if (this->_life == 0) {
+  if (this->_life <= 0) {
     std::cout << this->_name << " is actually dead..." << std::endl;
     return;
   }
@@ -41,7 +41,7 @@ void ClapTrap::attack(const std::string &target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (this->_life == 0) {
+  if (this->_life <= 0) {
     std::cout << this->_name << " is actually dead..." << std::endl;
     return;
   }
@@ -51,11 +51,11 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (this->_energy == 0) {
+  if (this->_energy <= 0) {
     std::cout << "I have no more energy to be repaired !" << std::endl;
     return;
   }
-  if (this->_life == 0) {
+  if (this->_life <= 0) {
     std::cout << this->_name << " is actually dead..." << std::endl;
     return;
   }
