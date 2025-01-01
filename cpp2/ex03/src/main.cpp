@@ -6,7 +6,7 @@
 /*   By: dalebran <dalebran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:36:41 by dalebran          #+#    #+#             */
-/*   Updated: 2025/01/01 14:38:09 by dalebran         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:08:31 by dalebran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <iostream>
 
 int main() {
-  Point a(0, 0);
+  Point a(0.0f, 0.0f);
   Point b(10, 0);
   Point c(0, 10);
 
-  Point p1(2, 2);
+  Point p1(0.0f, 2.0f);
   Point p2(15, 5);
 
   std::cout << "p1 est dans le triangle ? "
