@@ -9,6 +9,12 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
             << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other) {
+  *this = other;
+  std::cout << "Creation of " << other._name << ", the ScavTrap original !"
+            << std::endl;
+}
+
 ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
   this->_attack = other._attack;
   this->_energy = other._energy;
