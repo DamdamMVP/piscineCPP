@@ -42,13 +42,17 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 
 void Form::beSigned(const Bureaucrat &b) {
-  if (this->_gradeToSign < b.getGrade()) {
+  if (b.getGrade() > _gradeToSign) {
     std::cout << b.getName() << " couldn't sign " << _name
-              << " because grade is too low !" << std::endl;
-	throw GradeTooLowException();
+              << " because grade is too low!" << std::endl;
+    throw GradeTooLowException();
+  }
+  if (_isSigned) {
+    std::cout << _name << " is already signed!" << std::endl;
+    return;
   }
   std::cout << b.getName() << " signed " << _name << std::endl;
-  this->_isSigned = true;
+  _isSigned = true;
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &f) {
