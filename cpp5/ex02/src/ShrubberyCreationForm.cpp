@@ -3,10 +3,10 @@
 #include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("Presidential Pardon", 145, 137), _target("Unknown") {}
+    : AForm("Shrubbery Creation", 145, 137), _target("Unknown") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm("Presidential Pardon", 145, 137), _target(target) {}
+    : AForm("Shrubbery Creation", 145, 137), _target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     : AForm(other), _target(other._target) {}
