@@ -16,3 +16,5 @@ public:
   T &operator[](unsigned int index);
   unsigned int size() const;
 };
+
+#include "Array.tpp"
