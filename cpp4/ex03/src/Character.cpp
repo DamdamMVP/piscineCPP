@@ -47,6 +47,8 @@ void Character::equip(AMateria *m) {
       return;
     }
   }
+  delete m;
+  return;
 }
 
 void Character::unequip(int idx) {

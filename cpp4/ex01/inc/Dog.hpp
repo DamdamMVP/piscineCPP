@@ -12,5 +12,7 @@ public:
   Dog(const Dog &other);
   Dog &operator=(const Dog &other);
   virtual ~Dog();
+
+  std::string getBrainIdea(int i) const;
   void makeSound() const;
 };

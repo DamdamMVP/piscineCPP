@@ -10,8 +10,8 @@ int main() {
   const Animal *myDog = new Dog();
   const Animal *myCat = new Cat();
 
-  std::cout << myDog->getType() << " " << std::endl;
-  std::cout << myCat->getType() << " " << std::endl;
+  std::cout << "myDog is a " << myDog->getType() << std::endl;
+  std::cout << "myCat is a " << myCat->getType() << std::endl;
   myCat->makeSound();
   myDog->makeSound();
   random->makeSound();

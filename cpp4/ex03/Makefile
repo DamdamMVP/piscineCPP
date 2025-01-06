@@ -7,7 +7,7 @@ SRCDIR		= src
 INCDIR		= inc
 OBJDIR		= obj
 
-SRC			= main AMateria Character Cure Ice
+SRC			= main AMateria Character Cure Ice MateriaSource
 SRCS		= $(addprefix $(SRCDIR)/, $(addsuffix .cpp, $(SRC)))
 OBJS		= $(addprefix $(OBJDIR)/, $(SRC:=.o))
 

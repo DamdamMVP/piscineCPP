@@ -22,6 +22,10 @@ Dog &Dog::operator=(const Dog &other) {
   return *this;
 }
 
+std::string Dog::getBrainIdea(int i) const {
+	return brain->getIdea(i);
+}
+
 Dog::~Dog() {
   std::cout << "Dog destructor called" << std::endl;
   delete brain;

@@ -22,5 +22,9 @@ int main() {
     delete animals[i];
   }
 
+  Dog basic;
+  { Dog tmp = basic; }
+  std::cout << "My first idea is : " << basic.getBrainIdea(0) << std::endl;
+
   return 0;
 }
