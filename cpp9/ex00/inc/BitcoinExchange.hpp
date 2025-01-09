@@ -14,9 +14,10 @@ public:
 
   void loadDatabase(const std::string &filename);
   void processInput(const std::string &inputFile);
-  float calculateValue(const std::string &date, float amount) const;
   bool isValidDate(const std::string &date) const;
-  bool isValidAmount(float amount) const;
+  bool isPositiveAmount(float amount) const;
+  bool isNotToMuchAmount(float amount) const;
+  bool isPositivePrice(float price) const;
   void printResult(const std::string &date, float amount, float value) const;
   void printError(const std::string &message) const;
 };
