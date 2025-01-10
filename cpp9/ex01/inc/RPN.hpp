@@ -13,7 +13,7 @@ private:
   RPN &operator=(const RPN &other);
   bool isOperator(const std::string &token) const;
   float applyOperator(const std::string &op, float a, float b) const;
-  bool isNumber(const std::string &token) const;
+  bool isNumberValid(const std::string &token) const;
 
 public:
   RPN();

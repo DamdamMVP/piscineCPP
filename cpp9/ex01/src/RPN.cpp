@@ -7,14 +7,15 @@ bool RPN::isOperator(const std::string &token) const {
   return (token == "+" || token == "-" || token == "*" || token == "/");
 }
 
-bool RPN::isNumber(const std::string &token) const {
-  for (size_t i = 0; i < token.length(); i++) {
-    if (!std::isdigit(token[i]) && token[i] != '.' &&
-        (i != 0 || token[i] != '-')) {
-      return false;
+bool RPN::isNumberValid(const std::string &token) const {
+  std::string validNumber[] = {"0", "1", "2", "3", "4",
+                               "5", "6", "7", "8", "9"};
+  for (size_t i = 0; i < 10; i++) {
+    if (token == validNumber[i]) {
+      return true;
     }
   }
-  return true;
+  return false;
 }
 
 float RPN::applyOperator(const std::string &op, float a, float b) const {
@@ -32,15 +33,29 @@ float RPN::applyOperator(const std::string &op, float a, float b) const {
   throw std::runtime_error("Error: invalid operator");
 }
 
+float stringToFloat(const std::string &token) {
+  std::stringstream ss(token);
+  float value;
+  ss >> value;
+  if (ss.fail()) {
+    throw std::runtime_error("Error: invalid number format");
+  }
+  return value;
+}
+
 float RPN::evaluate(const std::string &expression) {
   std::stack<float> stack;
   std::stringstream ss(expression);
   std::string token;
 
   while (ss >> token) {
-    if (isNumber(token)) {
-      stack.push(std::stof(token));
+    std::cout << "token = " << token;
+    if (isNumberValid(token)) {
+      std::cout << " is a number" << std::endl;
+      stack.push(stringToFloat(token));
     } else if (isOperator(token)) {
+      std::cout << " is a operator" << std::endl;
+
       if (stack.size() < 2) {
         throw std::runtime_error("Error: insufficient values in stack");
       }
