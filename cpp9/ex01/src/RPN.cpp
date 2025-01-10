@@ -49,13 +49,9 @@ float RPN::evaluate(const std::string &expression) {
   std::string token;
 
   while (ss >> token) {
-    std::cout << "token = " << token;
     if (isNumberValid(token)) {
-      std::cout << " is a number" << std::endl;
       stack.push(stringToFloat(token));
     } else if (isOperator(token)) {
-      std::cout << " is a operator" << std::endl;
-
       if (stack.size() < 2) {
         throw std::runtime_error("Error: insufficient values in stack");
       }
