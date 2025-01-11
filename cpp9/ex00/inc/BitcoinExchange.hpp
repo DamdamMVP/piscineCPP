@@ -20,4 +20,5 @@ public:
   bool isPositivePrice(float price) const;
   void printResult(const std::string &date, float amount, float value) const;
   void printError(const std::string &message) const;
+  bool isNumeric(const std::string &str);
 };

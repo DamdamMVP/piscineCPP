@@ -42,7 +42,7 @@ void BitcoinExchange::loadDatabase(const std::string &filename) {
         printError("Error 'data.csv': not a positive price.");
         continue;
       }
-	  _db[date] = price;
+      _db[date] = price;
     } else {
       printError("Error 'data.csv': bad input format => " + line);
     }
@@ -63,16 +63,25 @@ void BitcoinExchange::processInput(const std::string &inputFile) {
   while (std::getline(file, line)) {
     std::stringstream ss(line);
     std::string date;
+    std::string amountStr;
     float amount;
 
     if (std::getline(ss, date, '|')) {
-      ss >> amount;
+      std::getline(ss, amountStr);
       date.erase(date.find_last_not_of(" ") + 1);
 
       if (!isValidDate(date)) {
         printError("Error: invalid date => " + date);
         continue;
       }
+
+      if (!isNumeric(amountStr)) {
+        printError("Error: invalid amount format => " + amountStr);
+        continue;
+      }
+
+      std::stringstream amountStream(amountStr);
+      amountStream >> amount;
 
       if (!isPositiveAmount(amount)) {
         printError("Error: not a positive number.");
@@ -150,4 +159,29 @@ void BitcoinExchange::printResult(const std::string &date, float amount,
 
 void BitcoinExchange::printError(const std::string &message) const {
   std::cerr << message << std::endl;
+}
+
+bool BitcoinExchange::isNumeric(const std::string &str) {
+  size_t start = str.find_first_not_of(" ");
+  size_t end = str.find_last_not_of(" ");
+  if (start == std::string::npos) {
+    return false;
+  }
+
+  std::string trimmed = str.substr(start, end - start + 1);
+
+  bool hasDecimalPoint = false;
+
+  for (size_t i = 0; i < trimmed.length(); ++i) {
+    if (trimmed[i] == '.') {
+      if (hasDecimalPoint || i == 0 || i == trimmed.length() - 1) {
+        return false;
+      }
+      hasDecimalPoint = true;
+    } else if (!std::isdigit(trimmed[i])) {
+      return false;
+    }
+  }
+
+  return true;
 }
