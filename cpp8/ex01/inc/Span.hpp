@@ -11,6 +11,7 @@ private:
     unsigned int max_size;
 
 public:
+	Span();
     Span(unsigned int N);
     Span(const Span& other);
     Span& operator=(const Span& other);
@@ -19,4 +20,5 @@ public:
     void addNumber(int number);
     int shortestSpan() const;
     int longestSpan() const;
+	void generateNumbers(size_t count);
 };

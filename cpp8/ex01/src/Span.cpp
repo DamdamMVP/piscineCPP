@@ -1,5 +1,7 @@
 #include "Span.hpp"
 
+Span::Span() : max_size(0) {}
+
 Span::Span(unsigned int N) : max_size(N) {}
 
 Span::Span(const Span& other) : numbers(other.numbers), max_size(other.max_size) {}
@@ -47,3 +49,13 @@ int Span::shortestSpan() const {
     }
     return min_diff;
 }
+
+void Span::generateNumbers(size_t count) {
+    if (count + numbers.size() > max_size) {
+        throw std::overflow_error("Adding these numbers exceeds Span capacity.");
+    }
+    for (size_t i = 0; i < count; ++i) {
+        numbers.push_back(std::rand());
+    }
+}
+
