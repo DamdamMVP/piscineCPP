@@ -1,22 +1,23 @@
 #include <iostream>
 #include <vector>
 #include "easyfind.hpp"
+#include <ctime>
 
 int main() {
-    std::vector<int> v;
-    v.push_back(10);
-    v.push_back(42);
-    v.push_back(7);
+    std::vector<int> v(1000);
+
+	std::srand(std::time(0));
+	std::generate(v.begin(), v.end(), std::rand);
 
     try {
-        std::vector<int>::iterator it = easyfind(v, 42);
+        std::vector<int>::iterator it = easyfind(v, v[5]);
         std::cout << "Element found: " << *it << std::endl;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 
     try {
-        std::vector<int>::iterator it = easyfind(v, 99);
+        std::vector<int>::iterator it = easyfind(v, 0);
         std::cout << "Element found: " << *it << std::endl;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
